@@ -29,6 +29,12 @@ pipeline {
       }
     }
     stage('despliegue') {
+      agent {
+        node {
+          label 'Windows'
+        }
+
+      }
       steps {
         copyArtifacts(projectName: 'maven-project', fingerprintArtifacts: true, flatten: true)
       }
