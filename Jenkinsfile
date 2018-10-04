@@ -24,6 +24,12 @@ pipeline {
       }
     }
     stage('Aprove') {
+      agent {
+        node {
+          label 'Windows'
+        }
+
+      }
       steps {
         input(message: 'desea desplegar?', ok: 'SI')
       }
